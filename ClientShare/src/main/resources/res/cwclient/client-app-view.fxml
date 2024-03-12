@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="res.cwclient.Controller">
+    <children>
+        <AnchorPane fx:id="StartScreen" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <Button layoutX="264.0" layoutY="269.0" mnemonicParsing="false" onAction="#onStartButtonClick" text="Войти">
+                    <font>
+                        <Font name="Candara" size="18.0" />
+                    </font>
+                </Button>
+                <Label layoutX="154.0" layoutY="18.0" text="Клиент для программы&#10;по учёту товаров&#10;в магазине электротоваров" textAlignment="CENTER">
+                    <font>
+                        <Font name="Calibri" size="25.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="LoginScreen" prefHeight="400.0" prefWidth="600.0" visible="false">
+            <children>
+                <Button layoutX="511.0" layoutY="346.0" mnemonicParsing="false" onAction="#onLoginBackButtonClick" prefHeight="35.0" prefWidth="74.0" text="Назад">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <AnchorPane fx:id="RegisterElements" layoutX="100.0" prefHeight="400.0" prefWidth="400.0" visible="false">
+                    <children>
+                        <Button layoutX="104.0" layoutY="346.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" text="Зарегистрироваться">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <TextField fx:id="RegisterLoginField" layoutX="57.0" layoutY="119.0" onMouseClicked="#onRegisterLoginFieldClick" promptText="Логин" />
+                        <PasswordField fx:id="RegisterPasswordField1" layoutX="58.0" layoutY="173.0" onMouseClicked="#onRegisterPasswordFieldClicked" promptText="Пароль" />
+                        <PasswordField fx:id="RegisterPasswordField2" layoutX="58.0" layoutY="227.0" onMouseClicked="#onRegisterPasswordFieldClicked" promptText="Повтор пароля" />
+                        <Label layoutX="58.0" layoutY="101.0" text="Введите ваш логин" />
+                        <Label layoutX="58.0" layoutY="155.0" text="Введите ваш пароль" />
+                        <Label layoutX="58.0" layoutY="209.0" text="Повторите ваш пароль" />
+                        <Label fx:id="LoginIsTakenLabel" layoutX="214.0" layoutY="123.0" text="Логин уже занят" textFill="#ff5757" visible="false" />
+                        <Label fx:id="PasswordsNotMatchLabel" layoutX="214.0" layoutY="231.0" text="Пароли должны совпадать" textFill="#ff5757" visible="false" />
+                        <Label fx:id="RegLoginEmptyLabel" layoutX="214.0" layoutY="123.0" text="Заполните логин!" textFill="#ff5757" visible="false" />
+                        <Label fx:id="RegPasswordEmptyLabel" layoutX="214.0" layoutY="177.0" text="Заполните пароль!" textFill="#ff5757" visible="false" />
+                        <Label fx:id="RegisterUnknownErrorLabel" layoutX="109.0" layoutY="321.0" text="Произошла неизвестная ошибка" textFill="#ff5757" visible="false" />
+                        <Label layoutX="132.0" layoutY="31.0" text="Регистрация">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="RegSuccessLabel" layoutX="110.0" layoutY="320.0" text="Успешно зарегистрировано" textFill="#00ff70" visible="false">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="LoginElements" layoutX="84.0" prefHeight="400.0" prefWidth="400.0">
+                    <children>
+                        <TextField fx:id="LoginField" layoutX="57.0" layoutY="119.0" onMouseClicked="#onLoginTextFieldClick" promptText="Логин" />
+                        <PasswordField fx:id="MaskedPasswordField" layoutX="57.0" layoutY="173.0" onAction="#onLoginButtonClick" onMouseClicked="#onPasswordTextFieldClicked" promptText="Пароль" />
+                        <TextField fx:id="ShownPasswordField" layoutX="57.0" layoutY="173.0" onAction="#onLoginButtonClick" onMouseClicked="#onPasswordTextFieldClicked" promptText="Пароль" visible="false" />
+                        <CheckBox fx:id="ShowPassword" layoutX="57.0" layoutY="206.0" mnemonicParsing="false" onAction="#onShowPasswordSwitch" text="Показать пароль">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </CheckBox>
+                        <Label layoutX="58.0" layoutY="101.0" text="Введите ваш логин" />
+                        <Label layoutX="58.0" layoutY="155.0" text="Введите ваш пароль" />
+                        <Label layoutX="75.0" layoutY="294.0" text="Ещё не зарегистрированы?" />
+                        <Hyperlink layoutX="225.0" layoutY="291.0" onAction="#onRegisterTextClick" text="Зарегистрироваться" textFill="#ffcc55" />
+                        <Button layoutX="132.0" layoutY="346.0" mnemonicParsing="false" onAction="#onLoginButtonClick" text="Залогиниться">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="LoginNotFoundLabel" layoutX="218.0" layoutY="123.0" text="Логин не найден" textFill="#ff5757" visible="false" />
+                        <Label fx:id="PasswordIsWrongLabel" layoutX="218.0" layoutY="177.0" text="Неверный пароль" textFill="#ff5757" visible="false" />
+                        <Label fx:id="UnverifiedLabel" layoutX="214.0" layoutY="114.0" text="Ваша учётная запись не подтверждена.&#10;Обратитесь к администратору" textFill="#ff5757" visible="false" />
+                        <Label fx:id="UnknownErrorLabel" layoutX="115.0" layoutY="328.0" text="Возникла неизвестная ошибка" textFill="#ff5757" visible="false" />
+                        <Label fx:id="LoginFieldEmpty" layoutX="216.0" layoutY="122.0" text="Заполните логин!" textFill="#ff5757" visible="false" />
+                        <Label fx:id="PasswordFieldEmpty" layoutX="215.0" layoutY="177.0" text="Заполните пароль!" textFill="#ff5757" visible="false" />
+                        <Label layoutX="135.0" layoutY="30.0" text="Авторизация">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <Label fx:id="UnconnectedLabel1" layoutX="67.0" layoutY="144.0" text="Невозможно подключится к серверу" textAlignment="CENTER" textFill="RED" visible="false">
+                    <font>
+                        <Font name="Lucida Sans Demibold" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="UnconnectedLabel2" layoutX="114.0" layoutY="186.0" text="Возможно, в данный момент он не работает" textFill="#ac1515" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="AfterLoginScreen" prefHeight="400.0" prefWidth="600.0" visible="false">
+            <children>
+                <AnchorPane fx:id="WorkWithProductsPane" prefHeight="338.0" prefWidth="600.0" visible="false">
+                    <children>
+                        <Button layoutX="330.0" layoutY="304.0" mnemonicParsing="false" onAction="#onWorkWithProductsAddButtonClick" text="Добавить" />
+                        <AnchorPane fx:id="WorkWithProductsInteractionPane" disable="true" layoutX="410.0" layoutY="144.0" prefHeight="43.0" prefWidth="191.0" AnchorPane.bottomAnchor="0.0">
+                            <children>
+                                <Button layoutX="8.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithProductsDeleteButtonClick" text="Удалить" />
+                                <Button layoutX="85.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithProductsEditButtonClick" text="Редактировать" />
+                            </children>
+                        </AnchorPane>
+                        <TableView fx:id="WorkWithProductsTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onWorkWithProductsSelect" prefHeight="270.0" prefWidth="574.0">
+                            <columns>
+                                <TableColumn fx:id="WorkWithProductsTableId" prefWidth="57.199978828430176" text="id" />
+                                <TableColumn fx:id="WorkWithProductsTableType" prefWidth="103.60000610351562" text="Тип" />
+                                <TableColumn fx:id="WorkWithProductsTableName" prefWidth="187.9999542236328" text="Название" />
+                                <TableColumn fx:id="WorkWithProductsTableManufacturer" prefWidth="104.60003662109375" text="Производитель" />
+                                <TableColumn fx:id="WorkWithProductsTableAmount" prefWidth="51.39996337890625" text="Кол-во" />
+                                <TableColumn fx:id="WorkWithProductsTablePrice" prefWidth="68.800048828125" text="Стоимость" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="399.0" layoutY="287.0" text="Работа с товарами">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="14.0" layoutY="304.0" mnemonicParsing="false" onAction="#onWorkWithProductsStatsButtonClick" text="Статистика по товарам" />
+                        <Button layoutX="179.0" layoutY="304.0" mnemonicParsing="false" onAction="#onAddProdTypeClick" text="Добавить тип товара" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="WorkWithWorkersPane" prefHeight="338.0" prefWidth="600.0" visible="false">
+                    <children>
+                        <AnchorPane fx:id="WorkWithWorkersInteractionPane" disable="true" layoutX="283.0" layoutY="294.0" prefHeight="43.0" prefWidth="317.0">
+                            <children>
+                                <Button layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithWorkersDeleteButtonClick" text="Удалить" />
+                                <Button layoutX="78.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithWorkersChangePostButtonClick" text="Переаттестовать" />
+                        <Button layoutX="195.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithWorkersChangeLoginButtonClick" text="Привязать логин" />
+                            </children>
+                        </AnchorPane>
+                        <Button layoutX="208.0" layoutY="303.0" mnemonicParsing="false" onAction="#onWorkWithWorkersAddButtonClick" text="Добавить" />
+                        <TableView fx:id="WorkWithWorkersTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onWorkWithWorkersSelect" prefHeight="278.0" prefWidth="574.0">
+                            <columns>
+                                <TableColumn fx:id="WorkWithWorkersTableName" prefWidth="209.20001220703125" text="Имя" />
+                                <TableColumn fx:id="WorkWithWorkersTableAge" prefWidth="54.79998779296875" text="Возраст" />
+                                <TableColumn fx:id="WorkWithWorkersTableLogin" prefWidth="123.0" text="Логин" />
+                                <TableColumn fx:id="WorkWithWorkersTablePost" prefWidth="187.20001220703125" text="Должность" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            <AnchorPane fx:id="WorkWithUsersPane" prefHeight="338.0" prefWidth="600.0" visible="false">
+               <children>
+                  <AnchorPane fx:id="WorkWithUsersInteractionPane" disable="true" layoutX="226.0" layoutY="292.0" prefHeight="43.0" prefWidth="362.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithUsersDeleteButtonClick" text="Удалить" />
+                        <Button layoutX="89.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithUsersAssignNameButtonClick" text="Назначить имя" />
+                        <Button layoutX="195.0" layoutY="9.0" mnemonicParsing="false" onAction="#onWorkWithWorkersChangeAdminButtonClick" text="Снять/выдать админ-права" />
+                     </children>
+                  </AnchorPane>
+                  <TableView fx:id="WorkWithUsersTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#onWorkWithUsersSelect" prefHeight="278.0" prefWidth="574.0">
+                    <columns>
+                      <TableColumn fx:id="WorkWithUsersTableLogin" prefWidth="138.19997882843018" text="Логин" />
+                      <TableColumn fx:id="WorkWithUsersTableName" prefWidth="261.00001525878906" text="Привязанное имя сотрудника" />
+                        <TableColumn fx:id="WorkWithUsersTableAdmin" prefWidth="175.79998779296875" text="Является администратором" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="60.0" layoutY="301.0" mnemonicParsing="false" onAction="#onWorkWithUsersAddButtonClick" text="Подтвердить пользователя" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="seeAllOperationsPane" prefHeight="338.0" prefWidth="600.0" visible="false">
+               <children>
+                  <TableView fx:id="seeAllOperationsTable" layoutX="14.0" layoutY="14.0" prefHeight="278.0" prefWidth="574.0">
+                    <columns>
+                      <TableColumn fx:id="seeAllOperationsTableLogin" prefWidth="75.0" text="Логин" />
+                      <TableColumn fx:id="seeAllOperationsTableName" prefWidth="75.0" text="Имя" />
+                        <TableColumn fx:id="seeAllOperationsTableType" prefWidth="50.600006103515625" text="Тип" />
+                        <TableColumn fx:id="seeAllOperationsTableSubj" prefWidth="85.4000244140625" text="Субъект" />
+                        <TableColumn fx:id="seeAllOperationsTableSubjName" prefWidth="88.199951171875" text="Имя субъекта" />
+                        <TableColumn fx:id="seeAllOperationsTableInfo" prefWidth="197.5999816894531" text="Детали" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="14.0" layoutY="299.0" mnemonicParsing="false" onAction="#onUpdateOperationsButtonClick" text="Обновить" />
+                  <Button layoutX="96.0" layoutY="299.0" mnemonicParsing="false" onAction="#onSaveOperationsToFileClick" text="Сохранить в файл" />
+               </children>
+            </AnchorPane>
+                <AnchorPane fx:id="changePasswordPane" layoutX="202.0" prefHeight="336.0" prefWidth="400.0" visible="false">
+                    <children>
+                        <Label layoutX="68.0" layoutY="38.0" text="Задание нового пароля" />
+                        <PasswordField fx:id="changePasswordField1" layoutX="68.0" layoutY="65.0" promptText="Новый пароль" />
+                        <PasswordField fx:id="changePasswordField2" layoutX="69.0" layoutY="105.0" onAction="#onChangePassword" promptText="Повтор нового пароля" />
+                        <Button layoutX="86.0" layoutY="186.0" mnemonicParsing="false" onAction="#onChangePassword" text="Изменить пароль" />
+                        <Label fx:id="changePasswordError" layoutX="57.0" layoutY="150.0" text="Содержимое полей должно&#10;СОВПАДАТЬ и не быть пустым!" textAlignment="CENTER" textFill="#ff5757" visible="false" />
+                        <Label fx:id="changePasswordSuccessLabel" layoutX="72.0" layoutY="222.0" text="Пароль успешно изменён" textFill="#00ff26" visible="false" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="seeWorkersPane" layoutX="188.0" prefHeight="337.0" prefWidth="407.0" visible="false">
+                    <children>
+                        <TableView fx:id="seeWorkersTable" layoutY="6.0" prefHeight="330.0" prefWidth="407.0">
+                            <columns>
+                                <TableColumn fx:id="seeWorkersTableName" prefWidth="103.199951171875" text="Имя" />
+                                <TableColumn fx:id="seeWorkersTableAge" prefWidth="50.60003662109375" text="Возраст" />
+                                <TableColumn fx:id="seeWorkersTableLogin" prefWidth="91.79998779296875" text="Логин" />
+                                <TableColumn fx:id="seeWorkersTablePost" prefWidth="160.00001831054686" text="Должность" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="seeOperationsUserPane" layoutX="188.0" prefHeight="337.0" prefWidth="407.0" visible="false">
+                    <children>
+                        <TableView fx:id="seeOperationsUserTable" layoutY="6.0" prefHeight="330.0" prefWidth="407.0">
+                            <columns>
+                                <TableColumn fx:id="seeOperationsUserTableAuthor" prefWidth="98.20001220703125" text="Имя" />
+                                <TableColumn fx:id="seeOperationsUserTableType" prefWidth="93.800048828125" text="Тип операции" />
+                                <TableColumn fx:id="seeOperationsUserTableTarget" prefWidth="75.0" text="Товар" />
+                                <TableColumn fx:id="seeOperationsUserTableInfo" prefWidth="138.3999816894531" text="Информация" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="UserMenuScreen" prefHeight="350.0" prefWidth="169.0" visible="false">
+                    <children>
+                        <Label fx:id="UserLabel" layoutX="33.0" prefHeight="43.0" prefWidth="119.0" text="Добро пожаловать,&#10;user" textAlignment="CENTER">
+                            <font>
+                                <Font name="Comic Sans MS" size="12.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="14.0" layoutY="47.0" mnemonicParsing="false" onAction="#onWorkWithProductsMenuButtonClick" prefHeight="26.0" prefWidth="158.0" text="Работать с товарами" textAlignment="CENTER" />
+                        <Button layoutX="14.0" layoutY="73.0" mnemonicParsing="false" onAction="#onSeeOperationsUserButtonClick" prefHeight="42.0" prefWidth="158.0" text="Посмотреть операции&#10;с товарами" textAlignment="CENTER" />
+                        <Button layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onAction="#onSeeWorkersUserMenuButtonClick" prefHeight="26.0" prefWidth="158.0" text="Посмотреть сотрудников" textAlignment="CENTER" />
+                        <Button layoutX="14.0" layoutY="175.0" mnemonicParsing="false" onAction="#changePasswordMenuButtonClick" prefHeight="24.0" prefWidth="158.0" text="Изменить пароль" textAlignment="CENTER" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="AdminMenuScreen" prefHeight="350.0" prefWidth="169.0" visible="false">
+                    <children>
+                        <Label layoutX="21.0" layoutY="14.0" text="Меню администратора" />
+                        <Button layoutX="6.0" layoutY="46.0" mnemonicParsing="false" onAction="#onWorkWithProductsMenuButtonClick" prefHeight="26.0" prefWidth="158.0" text="Работать с товарами" textAlignment="CENTER" />
+                        <Button layoutX="6.0" layoutY="72.0" mnemonicParsing="false" onAction="#onWorkWithWorkersMenuButtonClick" prefHeight="26.0" prefWidth="158.0" text="Работать с сотрудниками" />
+                        <Button layoutX="6.0" layoutY="98.0" mnemonicParsing="false" onAction="#onWorkWithUsersMenuButtonClick" prefHeight="42.0" prefWidth="158.0" text="Работать с&#10;пользователями" textAlignment="CENTER" />
+                        <Button layoutX="6.0" layoutY="140.0" mnemonicParsing="false" onAction="#onSeeAllOperationsMenuButtonClick" prefHeight="42.0" prefWidth="158.0" text="Посмотреть&#10;все операции" textAlignment="CENTER" />
+                        <Button layoutX="6.0" layoutY="220.0" mnemonicParsing="false" onAction="#changePasswordMenuButtonClick" prefHeight="24.0" prefWidth="158.0" text="Изменить пароль" textAlignment="CENTER" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="leavePane" layoutX="393.0" layoutY="347.0" prefHeight="53.0" prefWidth="208.0">
+                    <children>
+                        <Button fx:id="LeaveButton" mnemonicParsing="false" onAction="#onLeaveButtonClick" prefHeight="40.0" prefWidth="191.0" text="Выйти">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <AnchorPane fx:id="LeaveButtonOverlay" onMouseExited="#onLeaveCancel" prefHeight="40.0" prefWidth="200.0" visible="false">
+                            <children>
+                                <Button layoutX="100.0" layoutY="7.0" mnemonicParsing="false" onAction="#onLeaveAcceptButtonClick" text="Да" />
+                                <Button layoutX="141.0" layoutY="7.0" mnemonicParsing="false" onAction="#onLeaveCancelButtonClick" text="Отмена" />
+                                <Label layoutY="10.0" text="Вы уверенны?">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+                <Button fx:id="backMenuButton" layoutX="488.0" layoutY="343.0" mnemonicParsing="false" onAction="#onBackMenuButtonPress" prefHeight="40.0" prefWidth="100.0" text=" Назад" visible="false">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
